@@ -1,22 +1,5 @@
 import heapq
-def get_manhattan_distance(from_state, to_state=[1, 2, 3, 4, 5, 6, 7, 0, 0]):
-    """
-    TODO: implement this function. This function will not be tested directly by the grader. 
 
-    INPUT: 
-        Two states (if second state is omitted then it is assumed that it is the goal state)
-
-    RETURNS:
-        A scalar that is the sum of Manhattan distances for all tiles.
-    """
-    distance = 0
-    for from_idx,value in enumerate(from_state):
-        if value != 0:
-            to_idx = to_state.index(value)
-            from_row,from_col = int(from_idx/3),(from_idx)% 3
-            to_row,to_col = int(to_idx/3),(to_idx)% 3
-            distance += abs(from_row-to_row) + abs(from_col-to_col)
-    return distance
 def get_manhattan_distance(from_state, to_state=[1, 2, 3, 4, 5, 6, 7, 0, 0]):
     """
     TODO: implement this function. This function will not be tested directly by the grader. 
@@ -132,3 +115,17 @@ def solve(state, goal_state=[1, 2, 3, 4, 5, 6, 7, 0, 0]):
     print(*output, sep='\n')
     print(f"Max queue length: {max(max_pq)}")
 
+
+if __name__ == "__main__":
+    """
+    Feel free to write your own test code here to exaime the correctness of your functions. 
+    Note that this part will not be graded.
+    """
+    print_succ([2,5,1,4,0,6,7,0,3])
+    print()
+
+    print(get_manhattan_distance([2,5,1,4,0,6,7,0,3], [1, 2, 3, 4, 5, 6, 7, 0, 0]))
+    print()
+
+    solve([4,3,0,5,1,6,7,2,0])
+    print()
